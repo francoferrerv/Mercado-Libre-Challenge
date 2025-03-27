@@ -84,5 +84,24 @@ class TestMinesweeper(unittest.TestCase):
         ]
         self.assertEqual(count_neighbouring_mines(data), expected_output)
 
+    def test_bigger_case(self):
+        data = [
+            [0, 1, 0, 0, 1, 0],
+            [0, 0, 1, 0, 1, 1],
+            [0, 1, 0, 1, 0, 0],
+            [1, 1, 0, 0, 0, 1],
+            [0, 0, 1, 0, 1, 0],
+            [1, 0, 0, 1, 0, 0]
+        ]
+        expected_output = [
+            [1, 9, 2, 3, 9, 3],
+            [2, 3, 9, 4, 9, 9],
+            [3, 9, 4, 9, 4, 3],
+            [9, 9, 4, 3, 3, 9],
+            [3, 4, 9, 3, 9, 2],
+            [9, 2, 2, 9, 2, 1]
+        ]
+        self.assertEqual(count_neighbouring_mines(data), expected_output)
+
 if __name__ == "__main__":
     unittest.main()
